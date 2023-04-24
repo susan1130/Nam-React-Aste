@@ -1,0 +1,31 @@
+Predictive element of vs .....emmet
+CDN?? Content Delivery Networks : places where content is hosted and we can just add the required resources 
+Crossorigin??
+React is a Javascript library
+DOM: DOcument object model 
+Interactive/ dynamic web page is the most costly operation =>> DOM tree gets changed >> Hence the DOM manipulation techniques using JS by React 
+
+const headin = React.createElement("h3", {}, "Hello World VIA REACT");
+{} : is where you would give attributes to your tag h3
+headin returns a react element i.e an JavaScript object.
+"Hello World VIA REACT" is the children passed to h3
+React.createElement>> a JS object >> that the browser understands (html understands)>> during the render
+Siblings = array of objects
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<script src="./App.js"></script>
+
+The order of these files is permanent , if you change the alignment then React will throw error. "React not found/ defined error"
+
+
+
+Say we already have an element present in the <div> specified in nest.render(), then when we run the code, it'll get replaced by whatever is there in nest.render()
+
+React works whereever it is being used/called, can be the whole app or just a small part in the html like header/ footer/ aside etc
+
+Library Vs Framework??
+
