@@ -1,0 +1,33 @@
+{
+  "name": "episode1-inception",
+  "version": "1.0.0",
+  "description": "This is a created React app using just npm by Susan Das",
+  
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/susan1130/Nam-React-Aste.git"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Susan Das",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/susan1130/Nam-React-Aste/issues"
+  },
+  "homepage": "https://github.com/susan1130/Nam-React-Aste#readme",
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
