@@ -1,0 +1,138 @@
+git init
+git branch -M main
+git add .
+git commit -m "episode-1"
+git push origin main
+
+git remote add origin https://github.com/susan1130/Nam-React-Aste.git  once only . it ll ask for password
+
+
+npmjs.com: official website of npm
+npm: doesn't have a full form. ! NodePackageManager
+
+manages the node packages, but isn't called so
+
+NPM: Is a repository for all the packages. All libraries and utilities are hosted here
+
+
+npm init
+package name: (Episode1-Inception)
+version: (1.0.0)
+description: This is a created React app using npm by Susan Das
+entry point: (App.js) 
+test command: jest
+git repository:
+keywords: React
+author:
+license:
+
+PACKAGE= DEPENDENCY
+
+>> package.json  => configuration file for the npm
+
+Bundler:   lots of html and js file>> code needs to get compressed/ cleaned/ bundled etc etc so it can be sent to production.
+webpack parcel vive  ....... babel
+
+
+npm install -D parcel
+
+dependencies/ package types: normal (these are used even in production), dev(required in development phrase)  ??
+
+^ in the parcel  DevDependencies  ....can also be ~  .... ^ minor version .. ~ major version.....eg ... for 2.8.3   ^2.8.3 may get upgraded to 2.8.4 = minor version change.....but for ~2.8.3 upgrade may be to 3.0.0= major version change.
+Use ^ always ~ may invite problems
+
+~version “Approximately equivalent to version”, will update you to all future patch versions, without incrementing the minor version. ~1.2.3 will use releases from 1.2.3 to <1.3.0.
+
+^version “Compatible with version”, will update you to all future minor/patch versions, without incrementing the major version. ^2.3.4 will use releases from 2.3.4 to <3.0.0.
+
+
+~version	Approximately equivalent to version, i.e., only accept new patch versions
+                   See npm semver - Tilde Ranges
+^version	Compatible with version, i.e., accept new minor and patch versions
+                   See npm semver - Caret Ranges
+version	    Must match version exactly
+>version	Must be greater than version
+>=version	etc
+<version	
+<=version	
+1.2.x	1.2.0, 1.2.1, etc., but not 1.3.0
+*	Matches any version
+latest	Obtains latest release
+
+
+
+package-lock.json:  keeps a track/ record of the exact version of a package / dependency that is used
+Ensure that the packages currently in the local machine are also the ones in production
+
+Integrity: sha 512 hash. 
+
+node_module : like a database. Contains the actual code for the packages/ dependencies that are needed by the project
+
+transitive dependencies of parcel are in the node_module
+
+Each package has its own package.json with its own dependencies and DevDependencies 
+
+Package and package-lock maintain  a list of all the dependecy / package used in the project so we don't ignore them. Node_module can thus be ignored
+
+npm install....  this recreates/ downloads the packages / dependencies that are there in the package and package-lock.json
+
+
+
+npx parcel index.html    >>  executing a package ....package/ bundler parcel executed... index.html => source ... hosted at http://localhost:1234
+
+
+
+CDN link injection is a costly operation..... call has to made and all
+so install react as a package for the project in the package.json
+
+
+npm install react
+npm install react-dom
+
+HMR ==> HOT MODULE REPLACEMENT
+
+parcel::>   dev build, local server, HMR
+
+HMR: file watching algorithm, written in c++ 
+
+Parcel caches things... for faster builds...in .parcel-cache
+
+Parcel also optimises the images. which is costly
+
+Minification of files in production environment
+
+Bundling
+
+Compress
+
+Consistent hashing?
+
+code splitting
+
+Differential Bundling: irresepective of the app (like ) used or the m/c used parcel makes different bundles for different entities
+
+Diagnostics
+
+Error Handling
+
+HTTPs hosting env
+
+Tree shaking : remove unused code
+
+
+Parceljs.org  ??
+
+different dev and production bundle ....since production takes more time and has more optimisation when compared to dev build
+
+npx parcel build index.html
+
+
+dist folder ::> the place where the build of the project goes to after npx parcel build...
+it bundles, minifies etc etc
+
+
+browsers list:>  this tool can be used to limit the total no of bundles created for each of the various browser versions
+each version of a browser  get to have a seperate bundle. 
+Unlike govt websites most of the older versions of a browser can be excluded to save space and time.
+Browserlist allows you to write queries specific to usage country etc
+https://browserslist.dev/?q=bGFzdCAyIHZlcnNpb25z

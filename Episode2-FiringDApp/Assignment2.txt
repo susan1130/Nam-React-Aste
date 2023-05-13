@@ -1,0 +1,122 @@
+	What is 'npm' ?
+	
+	'npm' is a package manager for JavaScript programming language maintained by npm.Inc . It is the default package manager for the JavaScript runtime environment Node.js.  
+It consists of 
+    the website : to discover npm packages, set up profiles, etc.
+    the command line client (also called npm) : developers use this to interact with npm.
+    an online database of public and paid private packages (called npm registry): its the repository of packages.
+
+
+	What is 'parcel/ webpack'? Why do we need it?
+
+	Parcel and webpack are bundlers used by Javascript or Typescript code, to help minimise, clean, and compress the code so that it becomes easier to send a request or receive a response from the server (when the process of transfering multiple files without using any bundler for loading the page of your application becomes troublesome). Both reduce the transfer time of data and files from the application to the server while removing unnecessary comments, new lines, any kind of block delimiters, and white spaces while the functionality of the code remains unchanged. 
+			Differences
+	1. external configuration file
+Parcel :: doesn't need any of the external configuration file to be specified after its installation to work.
+Webpack :: requires a sperate config file that will specify plugins, output and entry loaders, transformations and other details after the installation process is complete
+
+	2. Tree shaking
+Parcel : For maintaining the appropriate size of the of the bundle and also maintain the performance of the application, tree shaking or dead code elimination is found here.
+Webpack : no such provision exists here.. but it can be achieved by adding a plugin.
+
+	3. Code splitting
+Parcel: Latest parcel versions have this feature.
+Webpack: has provisons for lazy loading by using code splitting.  [[ As and when your application grows, the size of the bundle also keeps on increasing substantially, and also the imports taken from third parties increase which affects the load time of our application. Code splitting helps in a lazy load of your files for the browser which substantially increases the user experience and performance of the application ]]
+
+	4. Hot module replacement
+Parcel: hot module replacement provided here
+Webpack: additional plugin required for this functionality
+
+	5.live reloading
+Parcel: parcel has the problems of hooks, middleware and logging of HTTP though it automatically builds the app depending on the changes that occur. Has live reloading functionality problem.
+Webpack: a plugin provides this functionality
+
+	6. built in module transformer
+Parcel: has in built module transformers that helps it learn how files other than JS can be run and handled [ [ it provides the built-in transpilers and transforms the most commonly required ] ]
+Webpack: requires manual installation, configuration, types of files to be transformed, plugin configuration for making them transform
+
+[ [ [ While creating an application that will make use of only basic functionalities and you want to quickly get it up and run then using the parcel bundle is a good choice. When your application is substantially large and involves the import from third parties and has become complex than for having the functionality of common JavaScript dependencies, static assets usage, and code splitting functionality then webpack is more good choice. ] ] ]
+
+
+	What is .parcel-caching?
+	Everything Parcel does is cached – transformation, dependency resolution, bundling, optimizing, and everything in between. This means the dev server restarts instantly, and the same code is never built twice. Parcel automatically tracks all of the files, configuration, plugins, and dev dependencies that are involved in your build, and granularly invalidates the cache when something changes. It integrates with low-level operating system APIs to determine what files have changed in milliseconds, no matter the project size.
+
+	What is 'npx' ?
+	Run a command from a local or remote npm package.	
+It's npm package runner. It allows users to run/ execute any javascript package found in the npm registry without installing it.  
+
+
+	What is the difference between 'dependencies' and 'devDependencies' ?
+	"dependencies" : Packages required by your application in production. 
+	"devDependencies" : Packages that are only needed for local development and testing.
+
+
+	What is tree shaking ?
+	 It statically analyzes the imports and exports of each module, and removes everything that isn't used. Tree shaking even works across dynamic import() boundaries, shared bundles, and even across languages! If you use CSS modules, unused classes will be removed automatically.
+
+
+	What is hot module replacement / hot reloading ?
+	Parcel automatically rebuilds the changed files and updates your app in the browser when changes are made to the code. 
+By default, Parcel fully reloads the page, but in some cases it may perform Hot Module Replacement (HMR). HMR improves the development experience by updating modules in the browser at runtime without needing a whole page refresh. This means that application state can be retained as you change small things in your code.
+CSS changes are automatically applied via HMR with no page reload necessary. This is also true when using a framework with HMR support built in, like React (via Fast Refresh), and Vue.
+HMR works by replacing the code for a module, and then re-evaluating it and along with all of its parents. If you need to customize this process, you can hook into it using the module.hot.accept and module.hot.dispose methods. These let you save and restore state inside the new version of the module.
+
+
+	What is '.gitignore' ? What should be included or not included here ?
+	'.gitignore'  contains all the resources that are to be excluded during code a commit operation in github. It shouldnot include files that are crucial to the project like the package.json and package-lock.json and the user written codes. It shouldn't include files that can be generated when the project is run like the cache files and the dist folder and the node module folder. 
+
+	 
+	Difference between package.json and package-lock.json?
+	The “package. json” file defines the rules required to run your application and install dependencies. 
+	The “package-lock. json” file  keeps a track/ record of the exact version of a package / dependency that is used. Ensures that the packages currently in the local machine are also the ones in production
+
+
+	Should the "package-lock.json" be modified ?
+	It is a generated file and is not designed to be manually edited. 
+Its purpose is to track the entire tree of dependencies (including dependencies of dependencies) and the exact version of each dependency. You should commit package-lock. json to your code repository.
+
+
+	What is included in the node_modules? Can we push it onto git?
+	Transitive dependencies of parcel are in the node_module
+	The node_modules folder contains generated code. This is not code you've written and you should never make any updates to the files inside Node modules because there's a pretty good chance they'll get overwritten next time you install some modules. So we don't need to commit it to the git repository
+
+
+	What is in the dist folder?
+	The dist folder is where the compiled code is stored. This is the code that is ready to be deployed to a production environment. The src and dist folders are essential for any software development project. They help to keep the code organized and ensure that the compiled version is always up-to-date
+
+
+	What is browserslists ?
+	The config to share target browsers and Node.js versions between different front-end tools
+
+
+	List 8 unique features of Parcel. Describe any three.
+
+	Zero config ->  Parcel supports many languages and file types out of the box, from web technologies like HTML, CSS, and JavaScript, to assets like images, fonts, videos, and more. And when you use a file type that isn't included by default, Parcel will automatically install all of the necessary plugins and dev dependencies.
+
+	Dev Server -> includes a development server out of the box. 
+
+	Hot reloading -> when you make a change, Parcel automatically updates your code in the browser – no page reload needed. 
+
+	Diagnostics -> If you make an error in your code or configuration, Parcel displays beautiful diagnostics in your terminal and in the browser. Every error includes a syntax highlighted code frame pointing to the exact location where the error occurred, along with hints about how to fix the issue. Many diagnostics even include a documentation link where you can learn more. 
+
+	Multi-core -> Parcel is designed around a multi-core architecture that parallelizes work across all of your cores and takes full advantage of modern hardware. Transforming individual source files is parallelized, as well as packaging and optimizing output bundles. All of this is completely automatic and does not require any work by plugin authors or other tools that integrate with Parcel
+
+	Caching -> Everything Parcel does is cached – transformation, dependency resolution, bundling, optimizing, and everything in between. This means the dev server restarts instantly, and the same code is never built twice. Parcel automatically tracks all of the files, configuration, plugins, and dev dependencies that are involved in your build, and granularly invalidates the cache when something changes. It integrates with low-level operating system APIs to determine what files have changed in milliseconds, no matter the project size.
+
+	Lazy dev builds -> In development, Parcel can defer building files until they are requested in the browser. This means you only need to wait for the page you're actually working on to build! If your project has many entries or code split points, this can massively reduce dev server startup time. And when you do request a page, Parcel is smart enough to eagerly build all of the dependencies of that page at once, without waiting for them to be requested as well – no network waterfalls.
+
+	Tree shaking -> It statically analyzes the imports and exports of each module, and removes everything that isn't used. Tree shaking even works across dynamic import() boundaries, shared bundles, and even across languages. If you use CSS modules, unused classes will be removed automatically.
+
+	Minification -> Parcel includes minifiers for JavaScript, CSS, HTML, and SVG out of the box! Just run parcel build index.html, and your whole application will be built and optimized automatically.
+
+	Code splitting -> When multiple parts of your application depend on the same common modules, they are automatically deduplicated into a separate bundle. This allows commonly used dependencies to be loaded in parallel with your application code and cached separately by the browser. Code splitting is also supported for CSS. If you import CSS from your JavaScript, a sibling CSS bundle will be produced and loaded in parallel with the JS bundle.
+
+	Content hashing -> Parcel automatically includes content hashes in the names of all output files. This enables long-term browser caching, because the output is guaranteed not to change unless the name does.Parcel also resolves all referenced bundles relative to their parent using a manifest in each entry. This means that changes to referenced bundles don't invalidate the cache for their parents as well, and output files can be moved between locations without rebuilding.
+
+	Transpilation -> Parcel transpiles your JavaScript and CSS for your target browsers automatically! Just declare a browserslist in your package.json, and Parcel takes care of transpiling only what's needed.
+
+	Differential bundling -> When you use <script type="module">, Parcel automatically generates a nomodule fallback for old browsers as well, depending on your browser targets. This results in much smaller bundles for a majority of users in modern browsers, while still supporting older browsers as well.
+
+
+	Reading assignments :: ` , ^, script types in html (MDN Docs), bundler vite 
+
