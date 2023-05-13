@@ -1,0 +1,172 @@
+npx parcel index.html  => npm execute  ... a parcel at index.html
+
+after writing the script ::  "start":"parcel index.html", "pbuild": "parcel build index.html"   >> use:-
+npm run start		OR		npm start			(only works for start)
+npm run pbuild
+
+React.createElement = > creates an object => gives a react element (which is a JS object) not an html element => when rendered, react element turns into an html element
+
+React.createElement()   ... is how originally ppl originally React . But its clumsy and kind of reminds you for servlets where we had difficulty coding html elements inside the java code. So another method was created
+
+so JSX was created . It's not a part of react. its seperate.  IT'S AN HTML / XML LIKE SYNTAX. it's not HTML in JS
+
+
+const JSXheading = <h1 id='bella' className='bellaCiao'>Well Jsx makes life easy for us</h1>
+JSXheading is a react element
+is not a pure JS. JS doesn't have any JSX built into it. JS engine won't understand it. It only understands the ECMA script/ ES6
+PARCEL is the hero doing the work behind the screens. It transpiles the code before it reaches the JS engine, and then the engine receives the code that the browsers do understand
+BABEL is the package in PARCEL which is responsible for transpilation
+	Babel is a JS complier. 
+Babel can make older browsers understand the code being written (since they dont understand ES6)
+
+JSX => React.createElement => ReactElement = JS Object => HTMLElement (render)
+
+className gets converted to class during the conversion to HTML element
+
+JSX gets a camelCase syntax  eg: className, tabIndex
+<img> ?  <a> ?
+
+const JSXheading = (<h1 id='bella' className='bellaCiao'>
+		Well Jsx makes life easy for us
+		</h1>)
+
+Prettier code formatter ?? install maybe
+Bracket pair coloriser ... yes install
+ESLint?? maybe
+betterComments?? maybe
+
+
+const FunctionVar = () => { };	-----  normal arrow function
+
+const fn = () => true;        	-----   this is an arrow function which returns true only
+		Similar to
+const fn = () =>{
+        return true;
+};
+		
+
+
+REACT  COMPONENT
+
+Classbased components =>  OLD WAY
+Functional components =>   NEW WAY
+	It's just a normal JS function, which returns some JSX element    which is transpiled to an HTML element
+	Components are to be named using a CAPITAL letter
+	
+const HeadingComponent = () => {
+    return <h1>Functional Component</h1>;
+};
+
+	is similar to 
+
+const HeadingComponent = () => <h1>Functional Component</h1>;
+
+	OR
+
+const HeadingComponent = () => (
+    <h1 className="h1">Functional Component</h1>;
+);
+
+
+	Or a normal function like:
+
+const HeadingComponent = function () { 
+   return (
+    <h1 className="h1">Functional Component</h1>;
+   );
+};
+
+
+
+
+React Element to React Component conversion ::>>>  change the 1st letter of the element name to capital letter [eg c to C]
+				       ::>>>   make it an arrow function
+
+root.render(<HeadingComponent/> );    ..... is converting everything to HTML elements and the browser renders it
+
+Component composition : nesting one compnent in another
+
+In JSX syntax, we can write any code in javascript within the { } braces
+	eg {number} , {100*20} , {10*6} , {30/5}, {console.log(number)}, {console.log("kela")}etc
+
+
+
+//React functional component
+const HeadingComponent = () => {
+    return (
+        <div id='container'> 
+            <Title />               			// eg of component nesting
+            <h2>{no}</h2>			//eg of JS code inclusion in JSX
+            {simpleElement}			//eg of inclusion of a React element (which is ultimately JS code) in JSX (or inside a component)
+            <h1>Functional Component</h1>
+        </div>
+    );
+};
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<HeadingComponent/> );  
+
+-------------------------------
+const eleNest = (
+    <span>
+        <p>Element Nesting eg</p>
+    </span>
+);
+const simpleElement = (
+    <h1 className='bellaCiao'>
+        I am a simple React Element
+        {eleNest}					// elementNesting
+    </h1>
+);
+
+
+
+CrossSiteScripting Attack   ::  >> Injection attacks    >>> escapeing 
+
+{someData}   >>  JSX will sanitise someData before running it
+
+<Title/>  and <Title></Title>   are the same
+
+JSX can only have a single parent in the root ie a single element at the root level.
+
+
+ReactFragments
+
+
+const EleNest =() => (
+    <div id="d1">
+        <p>Element Nesting eg</p>
+    </div>
+    <div id="d2"><div>
+);
+//for the React Component, EleNest, <div> d1 and d2 aren't allowed there can be only one <div>. We had to replace this with something like: 
+<div>
+    <div id="d1">
+        <p>Element Nesting eg</p>
+    </div>
+    <div id="d2"><div>
+</div>
+
+
+So we use React Fragments
+
+<React.Fragment>
+   <div id="d1">
+        <p>Element Nesting eg</p>
+    </div>
+    <div id="d2"><div>
+</React.Fragment>
+
+Here, React.Fragment becomes the root and we dont get any extra thing or div in the html page. It behaves like an empty tag
+
+
+import React from 'react';
+'react comes from the node modules that house the packages reqd'
+
+
+<React.Fragment> </React.Fragment>    is from React side to solve this issue
+<> </>        is from JSX to solve the same issue
+
+so <React.Fragment> </React.Fragment>  and   <></>	have the same functionality
+
+
+can we have multiple createRoot and render ??
